@@ -1,10 +1,25 @@
 import { Logger } from "../core/logger.js";
 
-export class AutoCrafter{
+export class AutoCrafter {
 
-    tick(){
+    constructor(location) {
+        this.location = location;
+        this.connected = false;
+        this.energy = 0;
+        this.queue = [];
+    }
 
-        Logger.info("AutoCrafter Tick");
+    connectNetwork() {
+        this.connected = true;
+        Logger.info("Connected to Automation Network");
+    }
+
+    update() {
+
+        if (!this.connected)
+            return;
+
+        Logger.info("Processing Auto Crafter...");
 
     }
 
