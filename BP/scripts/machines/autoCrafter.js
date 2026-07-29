@@ -1,41 +1,86 @@
 import { Logger } from "../core/logger.js";
 import { CraftingJob } from "../core/craftingJob.js";
-import { CraftingPlanner } from "../core/craftingPlanner.js";
+import { RecursiveCrafter } from "../core/recursiveCrafter.js";
+import { CraftingQueue } from "../core/craftingQueue.js";
+
 
 export class AutoCrafter {
+
 
     constructor(location) {
 
         this.location = location;
+
         this.jobs = [];
 
-    }
-
-    addJob(itemId, amount) {
-
-        if (!CraftingPlanner.canCraft(itemId)) {
-
-            Logger.info("Materiais insuficientes.");
-
-            return false;
-
-        }
-
-        this.jobs.push(new CraftingJob(itemId, amount));
-
-        Logger.info("Novo trabalho criado.");
-
-        return true;
+        this.queue = new CraftingQueue();
 
     }
+
+
+
+    request(itemId, amount) {
+
+
+        const plan =
+            RecursiveCrafter.plan(
+                itemId,
+                amount
+            );
+
+
+        this.queue.add(plan);
+
+
+        Logger.info(
+            "Plano criado: "
+            + itemId
+        );
+
+    }
+
+
 
     update() {
 
-        for (const job of this.jobs)
+
+        if (!this.queue.empty()) {
+
+
+            const task =
+                this.queue.next();
+
+
+
+            this.jobs.push(
+
+                new CraftingJob(
+                    task.item,
+                    task.amount
+                )
+
+            );
+
+
+        }
+
+
+
+        for (const job of this.jobs) {
+
             job.tick();
 
-        this.jobs = this.jobs.filter(job => !job.finished);
+        }
+
+
+
+        this.jobs =
+            this.jobs.filter(
+                job => !job.finished
+            );
+
 
     }
+
 
 }
