@@ -3,15 +3,15 @@
   "header": {
     "name": "UtilityCraft Automation Expansion RP",
     "description": "Resources",
-    "uuid": "33333333-3333-4333-8333-333333333333",
-    "version": [0,1,0],
-    "min_engine_version": [1,21,0]
+    "uuid": "71a9d5b1-6d53-4d73-85ef-8fd0c4f3d103",
+    "version": [0, 1, 0],
+    "min_engine_version": [1, 21, 0]
   },
   "modules": [
     {
       "type": "resources",
-      "uuid": "44444444-4444-4444-8444-444444444444",
-      "version": [0,1,0]
+      "uuid": "cd9271fa-3f6f-46d7-a2b5-dbf986e4d104",
+      "version": [0, 1, 0]
     }
   ]
 }
