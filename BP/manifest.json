@@ -1,12 +1,30 @@
-import { system } from "@minecraft/server";
-import { Logger } from "./core/logger.js";
-import { Automation } from "./core/automation.js";
-
-system.run(() => {
-
-    Logger.info("--------------------------------");
-    Logger.info("UtilityCraft Automation Loaded");
-    Logger.info("Version: " + Automation.VERSION);
-    Logger.info("--------------------------------");
-
-});
+{
+  "format_version": 2,
+  "header": {
+    "name": "UtilityCraft Automation Expansion",
+    "description": "Automation system for Minecraft Bedrock",
+    "uuid": "8d71b6d8-5b4e-4b2f-9c9d-5d8d1d5b8d91",
+    "version": [0, 2, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "uuid": "b4cb67f6-2c93-42fd-b7b7-6e90d5c6d3af",
+      "version": [0, 2, 0],
+      "entry": "scripts/main.js",
+      "language": "javascript"
+    },
+    {
+      "type": "data",
+      "uuid": "d9bba3a4-8d5d-49d3-92d3-8bfa8d5b89bb",
+      "version": [0, 2, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.18.0"
+    }
+  ]
+}
