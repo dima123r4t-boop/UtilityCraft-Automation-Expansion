@@ -6,6 +6,10 @@ import {
     AutoCrafter
 } from "./autoCrafter.js";
 
+import {
+    AutoCrafterTerminal
+} from "../ui/autoCrafterTerminal.js";
+
 
 const machines = new Map();
 
@@ -54,11 +58,10 @@ world.beforeEvents.playerInteractWithBlock.subscribe(event => {
 
 
 
-    machine.request(
-        import { AutoCrafterTerminal } from "../ui/autoCrafterTerminal.js";
+    AutoCrafterTerminal.open(
+        event.player,
+        machine
+    );
 
 
-AutoCrafterTerminal.open(
-    event.player,
-    machine
-);
+});
