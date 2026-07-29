@@ -1,31 +1,25 @@
 import { Logger } from "../core/logger.js";
-import { NetworkBridge } from "../network/networkBridge.js";
+import { CraftingJob } from "../core/craftingJob.js";
 
 export class AutoCrafter {
 
     constructor(location) {
         this.location = location;
-        this.connected = false;
-        this.energy = 0;
-        this.queue = [];
+        this.jobs = [];
     }
 
-    initialize() {
-
-        NetworkBridge.connect(this);
-
-        Logger.info("Auto Crafter initialized.");
-
+    addJob(itemId, amount) {
+        this.jobs.push(new CraftingJob(itemId, amount));
+        Logger.info("Novo trabalho: " + itemId);
     }
 
     update() {
 
-        if (!NetworkBridge.isConnected(this)) {
-            return;
+        for (const job of this.jobs) {
+            job.tick();
         }
 
-        Logger.info("Waiting for crafting jobs...");
-
+        this.jobs = this.jobs.filter(job => !job.finished);
     }
 
 }
