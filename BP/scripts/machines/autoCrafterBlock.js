@@ -12,6 +12,20 @@ import {
 
 
 const machines = new Map();
+import {
+    world
+} from "@minecraft/server";
+
+import {
+    AutoCrafter
+} from "./autoCrafter.js";
+
+import {
+    AutoCrafterTerminal
+} from "../ui/autoCrafterTerminal.js";
+
+
+const machines = new Map();
 
 
 
