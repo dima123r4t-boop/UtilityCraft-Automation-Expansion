@@ -1,25 +1,5 @@
+import { EnergyStorage } from "../energy/energyStorage.js";
+import { InventoryManager } from "../inventory/inventoryManager.js";
+import { QueueManager } from "../crafting/queueManager.js";
+import { CraftingManager } from "../crafting/craftingManager.js";
 import { Logger } from "../core/logger.js";
-
-export class AutoCrafter {
-
-    constructor() {
-        this.energy = 0;
-        this.connected = false;
-        this.queue = [];
-    }
-
-    connect() {
-        this.connected = true;
-        Logger.info("Auto Crafter connected.");
-    }
-
-    tick() {
-
-        if (!this.connected)
-            return;
-
-        Logger.info("Running Auto Crafter Tick");
-
-    }
-
-}
