@@ -1,4 +1,5 @@
 import { system } from "@minecraft/server";
+import "./machines/autoCrafterBlock.js";
 import { Logger } from "./core/logger.js";
 import { Automation } from "./core/automation.js";
 import { RecipeManager } from "./core/recipeManager.js";
