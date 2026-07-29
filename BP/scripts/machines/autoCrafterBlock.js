@@ -55,8 +55,10 @@ world.beforeEvents.playerInteractWithBlock.subscribe(event => {
 
 
     machine.request(
-        "minecraft:planks",
-        4
-    );
+        import { AutoCrafterTerminal } from "../ui/autoCrafterTerminal.js";
 
-});
+
+AutoCrafterTerminal.open(
+    event.player,
+    machine
+);
