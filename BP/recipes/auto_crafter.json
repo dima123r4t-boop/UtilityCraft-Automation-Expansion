@@ -2,7 +2,7 @@
   "format_version": "1.21.0",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "utilitycraft:auto_crafter"
+      "identifier": "utilitycraft:auto_crafter_recipe"
     },
     "tags": [
       "crafting_table"
