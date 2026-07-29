@@ -1,0 +1,30 @@
+{
+ "format_version": "1.21.0",
+
+ "minecraft:item": {
+
+  "description": {
+
+   "identifier":
+   "utilitycraft:auto_crafter",
+
+   "category":
+   "construction"
+
+  },
+
+
+  "components": {
+
+   "minecraft:block_placer": {
+
+    "block":
+    "utilitycraft:auto_crafter"
+
+   }
+
+  }
+
+ }
+
+}
