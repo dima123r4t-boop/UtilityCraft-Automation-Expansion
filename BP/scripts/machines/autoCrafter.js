@@ -1,4 +1,5 @@
 import { Logger } from "../core/logger.js";
+import { NetworkBridge } from "../network/networkBridge.js";
 
 export class AutoCrafter {
 
@@ -9,17 +10,21 @@ export class AutoCrafter {
         this.queue = [];
     }
 
-    connectNetwork() {
-        this.connected = true;
-        Logger.info("Connected to Automation Network");
+    initialize() {
+
+        NetworkBridge.connect(this);
+
+        Logger.info("Auto Crafter initialized.");
+
     }
 
     update() {
 
-        if (!this.connected)
+        if (!NetworkBridge.isConnected(this)) {
             return;
+        }
 
-        Logger.info("Processing Auto Crafter...");
+        Logger.info("Waiting for crafting jobs...");
 
     }
 
