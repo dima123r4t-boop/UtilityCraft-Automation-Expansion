@@ -2,7 +2,7 @@ import { Logger } from "../core/logger.js";
 import { CraftingJob } from "../core/craftingJob.js";
 import { RecursiveCrafter } from "../core/recursiveCrafter.js";
 import { CraftingQueue } from "../core/craftingQueue.js";
-
+import { StorageBridge } from "../storage/storageBridge.js";
 
 export class AutoCrafter {
 
@@ -21,6 +21,20 @@ export class AutoCrafter {
 
     request(itemId, amount) {
 
+        if(
+ !StorageBridge.request(
+    itemId,
+    amount
+ )
+){
+
+ Logger.info(
+   "Item não encontrado no Storage"
+ );
+
+ return;
+
+}
 
         const plan =
             RecursiveCrafter.plan(
