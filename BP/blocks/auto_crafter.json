@@ -4,9 +4,28 @@
     "description": {
       "identifier": "utilitycraft:auto_crafter"
     },
+
     "components": {
+
       "minecraft:destroy_time": 3,
-      "minecraft:explosion_resistance": 6
+
+      "minecraft:explosion_resistance": 6,
+
+      "minecraft:geometry": "geometry.full_block",
+
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "auto_crafter",
+          "render_method": "opaque"
+        }
+      },
+
+      "minecraft:light_dampening": 15,
+
+      "minecraft:custom_components": [
+        "utilitycraft:auto_crafter"
+      ]
+
     }
   }
 }
