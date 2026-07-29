@@ -2,6 +2,10 @@ import {
     ActionFormData
 } from "@minecraft/server-ui";
 
+import {
+    ItemCatalog
+} from "../core/itemCatalog.js";
+
 
 export class AutoCrafterTerminal {
 
@@ -13,30 +17,28 @@ export class AutoCrafterTerminal {
             new ActionFormData();
 
 
-
         form.title(
             "Auto Crafter"
         );
 
 
         form.body(
-            "Sistema de fabricação automática"
+            "Escolha um item para fabricar"
         );
 
 
-        form.button(
-            "Fabricar item"
-        );
+        const items =
+            ItemCatalog.getAll();
 
 
-        form.button(
-            "Ver fila"
-        );
 
+        for(const item of items){
 
-        form.button(
-            "Cancelar tarefas"
-        );
+            form.button(
+                item.name
+            );
+
+        }
 
 
 
@@ -49,39 +51,24 @@ export class AutoCrafterTerminal {
 
 
 
-            switch(response.selection){
-
-
-                case 0:
-
-                    player.sendMessage(
-                        "Sistema de fabricação aberto."
-                    );
-
-                break;
+            const selected =
+                items[
+                    response.selection
+                ];
 
 
 
-                case 1:
-
-                    player.sendMessage(
-                        "Fila de fabricação:"
-                    );
-
-                break;
+            crafter.request(
+                selected.id,
+                1
+            );
 
 
 
-                case 2:
-
-                    player.sendMessage(
-                        "Tarefas canceladas."
-                    );
-
-                break;
-
-
-            }
+            player.sendMessage(
+                "Pedido criado: "
+                + selected.name
+            );
 
 
         });
