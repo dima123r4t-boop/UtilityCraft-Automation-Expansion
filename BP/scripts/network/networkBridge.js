@@ -1,15 +1,13 @@
-export class NetworkBridge{
+import { NetworkManager } from "./networkManager.js";
 
-    static connect(){
+export class NetworkBridge {
 
-        return true;
-
+    static connect(machine) {
+        return NetworkManager.connect(machine);
     }
 
-    static hasItems(){
-
-        return false;
-
+    static isConnected(machine) {
+        return NetworkManager.isConnected(machine);
     }
 
 }
