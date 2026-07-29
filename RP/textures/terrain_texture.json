@@ -1,3 +1,9 @@
-"auto_crafter": {
-  "textures": "textures/blocks/auto_crafter"
+{
+  "resource_pack_name": "UtilityCraft Automation",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "auto_crafter": {
+      "textures": "textures/blocks/auto_crafter"
+    }
+  }
 }
