@@ -1,0 +1,12 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:auto_crafter"
+    },
+    "components": {
+      "minecraft:destroy_time": 3,
+      "minecraft:explosion_resistance": 6
+    }
+  }
+}
